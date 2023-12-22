@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel Website</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    
+  </head>
+  <body>
+    <header>
+        <div class="logo">
+          <a href="logo"><img src="images/Logo.png" alt="logo" /></a>
+        </div>
+        <nav class="nav-menu">
+          <ul>
+            <li><a href="#" onclick="reloadPage()">Home</a></li>
+            <li><a href="#" onclick="scrollToSection('bookingForm')">Book</a></li>
+            <li>
+                <a href="#" onclick="scrollToClass('gallery')">Packages </a>
+                <ul class="dropdown">
+                <li><a href="#" onclick="scrollToClass('United')">United States </a></li>
+                <li><a href="#" onclick="scrollToClass('India')">India</a></li>
+                <li><a href="#" onclick="scrollToClass('France')">France</a></li>
+                <li><a href="#" onclick="scrollToClass('Germany')">Germany</a></li>
+            </ul></li>
+            <li><a href="#" onclick="scrollToClass('services')">Services</a></li>
+            <li><a href="#" onclick="scrollToClass('img-gallery')">Gallery</a></li>
+            <li><a href="#" onclick="scrollToClass('about')">About</a></li>
+            <button> <a class= "Login" href="login.html">Login</a></button>
+            <div><button> <a class= "Register" href="register.html">Register</a></button></ul>
+                
+        </nav>
+    </header>
+
+    <script>
+    function reloadPage() {
+      window.location.reload();
+    }
+    function scrollToClass(className) {
+        var targetElement = document.querySelector('.' + className);
+
+       if (targetElement) {
+       targetElement.scrollIntoView({ behavior: 'smooth' });}
+    }        
+        
+    function scrollToSection(sectionId) {
+        var targetSection = document.getElementById(sectionId);
+      
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+    }
+      
+    </script>
+    <main>
+      <section class="hero">
+        <div class="hero-image">
+          <img src="images/US.jpeg" alt="Hero image" />
+        </div>
+        <div class="hero-content">
+          <h1>Welcome to Adventure</h1>
+          <p>Explore the world with us.</p>
+          <a href="hero button" class="hero-button">Book Now</a>
+        </div>
+      </section> 
+        <div><h1 class="booking">Booking menu</h1></div>
+        <div class="container">
+          <div class="left-section"></div>
+          <div class="right-section">
+              <form id="bookingForm">
+                  <label for="destination">Where to:</label>
+                  <select id="destination" name="destination" required>
+                      <option value="Select destination">Select a destination</option>
+                      <option value="destination1">United States</option>
+                      <option value="destination2">India</option>
+                      <option value="destination2">France</option>
+                      <option value="destination2">Germany</option>
+                  </select>
+  
+                  <label for="people">How Many Person:</label>
+                  <input type="number" id="people" name="people" min="1" required>
+  
+                  <label for="startDate">Start Date:</label>
+                  <input type="date" id="startDate" name="startDate" min="2023-01-01" required>
+  
+                  <label for="endDate">End Date:</label>
+                  <input type="date" id="endDate" name="endDate" required>
+  
+                  <label for="description">Description:</label>
+                  <textarea id="description" name="description" rows="4" minlength="50" maxlength="500" required></textarea>
+  
+                  <button type="button" onclick="bookNow()">Book Now</button>
+              </form>
+          </div>
+      </div>
+      <script>
+        function bookNow() {
+            var form = document.getElementById("bookingForm");
+            if (form.checkValidity()) {
+                alert("Booking successful!");
+            }
+        }
+        </script>    
+    <section>
+    <div><h1 class="packages">Our Packages</h1></div>
+    <style>* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      }
+      body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+      }</style>
+      
+      <div class="gallery">
+
+        <!-- Package 1 -->
+        <div class="card">
+            <div class="United"></div>
+            <img src="images/New york city.jpeg" alt="United States">
+            <div class="card-content">
+                <h2>United States</h2>
+                <p>The United States beckons with diverse attractions, from the iconic Statue of Liberty and Grand Canyon to the vibrant cities of New York and San Francisco. Visitors experience cultural melting pots, explore vast national parks, and savor regional cuisines.
+                </p>
+            </div>
+            <div class="card-price">
+                <span>$850</span>
+                <span>Rating: 4.5</span>
+                <button onclick="bookNow()">Book Now</button>
+            </div>
+        </div>
+
+        <!-- Package 2 -->
+        <div class="card">
+            <div class="Germany"></div>
+            <img src="images/Germany.jpeg" alt="Germany">
+            <div class="card-content">
+                <h2>Germany</h2>
+                <p>Germany is renowned for its historic landmarks, such as the iconic Brandenburg Gate and Neuschwanstein Castle, and offers a rich cultural experience with world-class museums, festivals, and a vibrant culinary scene featuring traditional bratwurst and beer.</p>
+            </div>
+            <div class="card-price">
+                <span>$700</span>
+                <span>Rating: 4.8</span>
+                <button onclick="bookNow()">Book Now</button>
+            </div>
+        </div>
+
+        <!-- Package 3 -->
+        <div class="card">
+            <img src="images/Japan mountain.jpeg" alt="Japan">
+            <div class="card-content">
+                <h2>Japan</h2>
+                <p>Japan offers a blend of traditional cultural experiences like tea ceremonies and cherry blossom viewing alongside modern technology in cities like Tokyo.
+                    Visit historic temples, gardens, and enjoy the vibrant street life.</p>
+            </div>
+            <div class="card-price">
+                <span>$650</span>
+                <span>Rating: 4.2</span>
+                <button onclick="bookNow()">Book Now</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function bookNow() {
+            alert("Booking successful!");
+        }
+    </script>
+
+ <div class="gallery">
+
+  <!-- Package 4 -->
+  <div class="card">
+    <div class="India"></div>
+      <img src="images/Hawa mahal.jpeg" alt="India">
+      <div class="card-content">
+          <h2>India</h2>
+          <p>India boasts a rich cultural heritage with historic monuments like the Taj Mahal, Jaipur's palaces, and ancient temples.
+            Experience diverse traditions, festivals, and cuisine in different regions.</p>
+      </div>
+      <div class="card-price">
+          <span>$500</span>
+          <span>Rating: 4.3</span>
+          <button onclick="bookNow()">Book Now</button>
+      </div>
+  </div>
+
+  <!-- Package 5 -->
+  <div class="card">
+      <img src="images/Australia.jpeg" alt="Australia">
+      <div class="card-content">
+          <h2>Australia</h2>
+          <p>Australia is known for its stunning natural landscapes, including the Great Barrier Reef, Ayers Rock, and the diverse wildlife.
+            Enjoy outdoor activities such as surfing, snorkeling, and exploring national parks.</p>
+      </div>
+      <div class="card-price">
+          <span>$700</span>
+          <span>Rating: 4.4</span>
+          <button onclick="bookNow()">Book Now</button>
+      </div>
+  </div>
+
+  <!-- Package 6 -->
+  <div class="card">
+    <div class="France"></div>
+      <img src="images/France.jpeg" alt="France">
+      <div class="card-content">
+          <h2>France</h2>
+          <p>France is famous for its exquisite cuisine, fine wines, and pastries.
+            Explore the romantic ambiance of Paris, visit the Louvre, and enjoy the picturesque landscapes of the French countryside.</p>
+      </div>
+      <div class="card-price">
+          <span>$850</span>
+          <span>Rating: 4.1</span>
+          <button onclick="bookNow()">Book Now</button>
+      </div>
+  </div>
+</div>
+
+<script>
+  function bookNow() {
+      alert("Booking successful!");
+  }
+</script>
+
+<div class="gallery">
+  <!-- Package 7 -->
+  <div class="card">
+      <img src="images/Dubai.jpeg" alt="Dubai">
+      <div class="card-content">
+          <h2>Dubai</h2>
+          <p>Dubai captivates visitors with its futuristic skyline, epitomized by the Burj Khalifa, and offers extravagant experiences, including luxury shopping, desert safaris, and iconic landmarks such as the Palm Jumeirah.</p>
+      </div>
+      <div class="card-price">
+          <span>$650</span>
+          <span>Rating: 4.5</span>
+          <button onclick="bookNow()">Book Now</button>
+      </div>
+  </div>
+
+  <!-- Package 8 -->
+  <div class="card">
+      <img src="images/Italy.jpeg" alt="Italy">
+      <div class="card-content">
+          <h2>Italy</h2>
+          <p>Italy is known for its rich history and art, including iconic landmarks such as the Colosseum, Vatican City, and the Uffizi Gallery.
+            Experience the Renaissance in Florence and explore the ancient ruins in Rome.</p>
+      </div>
+      <div class="card-price">
+          <span>$900</span>
+          <span>Rating: 4.8</span>
+          <button onclick="bookNow()">Book Now</button>
+      </div>
+  </div>
+
+  <!-- Package 9 -->
+  <div class="card">
+      <img src="images/Turkie.jpeg" alt="Turkiye">
+      <div class="card-content">
+          <h2>Turkiye</h2>
+          <p>Turkiye beckons with a rich tapestry of history seen in awe-inspiring sites like Hagia Sophia and Cappadocia's unique landscapes. Visitors savor the blend of vibrant markets, traditional cuisine, and breathtaking coastlines along the Aegean and Mediterranean.</p>
+      </div>
+       <div class="card-price">
+          <span>$600</span>
+          <span>Rating: 4.1</span>
+          <button onclick="bookNow()">Book Now</button>
+        </div>
+     </div>
+    </div>
+
+    <script>
+       function bookNow() {
+      alert("Booking successful!");}
+      </script>
+   </section>
+  
+  
+    <div class="container3"></div>
+    <div><h1 class="services">Our Services</h1></div>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        padding: 20px;
+    }</style>
+
+  <div class="services">
+    <!-- Service 1: Affordable Hotel -->
+    <div class="service-card">
+        <img src="images/Hotel room.jpeg" alt="Affordable Hotel">
+        <div class="service-content">
+            <h2>Affordable Hotel</h2>
+            <p>Our travel agency ensures budget-friendly accommodations tailored to your preferences, providing a comfortable stay without compromising quality. Whether you seek city center convenience or tranquil escapes, we offer a range of affordable hotel options for a seamless travel experience.
+            </p>
+        </div>
+    </div>
+
+    <!-- Service 2: Food & Drinks -->
+    <div class="service-card">
+        <img src="images/food pizza.jpeg" alt="Food & Drinks">
+        <div class="service-content">
+            <h2>Food & Drinks</h2>
+            <p>Indulge in a culinary journey with our curated selection of dining experiences. From local delicacies to international cuisines, our travel packages include options for every palate. Enjoy the finest food and drinks, immersing yourself in the gastronomic delights of your chosen destination.    
+            </p>
+        </div>
+    </div>
+
+    <!-- Service 3: Safety Guide -->
+    <div class="service-card">
+        <img src="images/Safety guide.jpeg" alt="Safety Guide">
+        <div class="service-content">
+            <h2>Safety Guide</h2>
+            <p>Your safety is our top priority. Our experienced safety guides accompany you throughout your journey, providing valuable insights, local knowledge, and ensuring a secure and worry-free travel experience. From navigating bustling markets to exploring historical landmarks, our guides are dedicated to enhancing your overall safety and enjoyment.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="services">
+    <!-- Service 4: Travel Insurance -->
+    <div class="service-card">
+        <img src="images/Insurance.jpeg" alt="Travel Insurance">
+        <div class="service-content">
+            <h2>Travel Insurance</h2>
+            <p>We understand the importance of peace of mind while traveling. Our comprehensive travel insurance plans offer coverage for unforeseen events, ensuring you are financially protected during your trip. From medical emergencies to trip cancellations, our travel insurance provides a safety net, allowing you to explore with confidence.</p>
+        </div>
+    </div>
+
+    <!-- Service 5: Pickup & Drop -->
+    <div class="service-card">
+        <img src="images/cab.jpeg" alt="Pickup & Drop">
+        <div class="service-content">
+            <h2>Pickup & Drop</h2>
+            <p>Streamline your travel experience with our convenient pickup and drop services. Whether arriving at the airport, train station, or hotel, our reliable transportation services ensure a smooth transition to your destination. Sit back, relax, and let us take care of your transportation needs.</p>
+        </div>
+    </div>
+
+    <!-- Service 6: Flight booking -->
+    <div class="service-card">
+        <img src="images/flight.jpeg" alt="Flight booking">
+        <div class="service-content">
+            <h2>Flight booking</h2>
+            <p>Seamlessly plan your journey with our expert flight booking services. Our travel agency offers a range of options, allowing you to choose the most convenient and cost-effective flights. Benefit from our industry expertise, ensuring hassle-free flight arrangements that align with your travel preferences and schedule.
+            </p>
+        </div>
+    </div>
+ </div>
+ <div><h1 class="gallery">Gallery</h1></div>
+ <div class="full-img" id="fullImgBox">
+   <img src= "images/1.jpeg" id="fullImg">
+   <span onclick="closeFullImg()">X</span>
+ </div>
+ <div class="img-gallery">  
+    <img src = "images/1.jpeg" alt="Gallery image" onclick="openFullImg(this.src)">
+    <img src = "images/2.jpeg" alt="Gallery image" onclick="openFullImg(this.src)">
+    <img src = "images/3.jpeg" alt="Gallery image" onclick="openFullImg(this.src)">
+    <img src = "images/4.jpeg" alt="Gallery image" onclick="openFullImg(this.src)">
+    <img src = "images/5.jpeg" alt="Gallery image" onclick="openFullImg(this.src)">
+    <img src = "images/7.jpeg" alt="Gallery image" onclick="openFullImg(this.src)">
+    <img src = "images/8.jpeg" alt="Gallery image" onclick="openFullImg(this.src)">    
+    <img src = "images/9.jpeg" alt="Gallery image" onclick="openFullImg(this.src)">
+    <img src = "images/11.jpeg" alt="Gallery image" onclick="openFullImg(this.src)">
+    <img src = "images/12.jpeg" alt="Gallery image" onclick="openFullImg(this.src)">
+    <img src = "images/13.jpeg" alt="Gallery image" onclick="openFullImg(this.src)">
+    <img src = "images/14.jpeg" alt="Gallery image" onclick="openFullImg(this.src)">
+ </div>
+<script>
+
+var fullImgBox= document.getElementById("fullImgBox");
+var fullImg= document.getElementById("fullImg");
+
+function openFullImg(pic){
+    fullImgBox.style.display= "flex";
+    fullImg.src= pic;
+}
+function closeFullImg(){
+    fullImgBox.style.display= "none";
+}
+</script>
+
+<div><h1 class="about">About</h1></div>
+<div class="row">
+    <!-- Left Section with Image -->
+    <div class="left-section">
+        <img src="images/Logo.png" alt="Company Image">
+    </div>
+
+    <!-- Right Section with Company Information -->
+    <div class="right-section">
+        
+            <p>
+            Welcome to Adventure, a premier destination for unforgettable travel experiences. Established in 2023, we take pride in curating extraordinary journeys that immerse our clients in the richness of diverse cultures, breathtaking landscapes, and unparalleled adventures.
+            </p>
+            
+            <p>
+            At Adventure, we believe that travel is not just about reaching a destination; it's about the journey and the memories created along the way. Our team of experienced travel experts is dedicated to crafting bespoke itineraries that cater to the unique interests and preferences of each traveler. Whether you're seeking a luxurious retreat, an exploration of historical wonders, or an adrenaline-packed adventure, we have the expertise to turn your travel dreams into reality.
+            <p>
+            <p>    
+            What sets us apart is our commitment to delivering exceptional service and personalized attention to detail. From the moment you reach out to us to the time you return home, we strive to make every aspect of your journey seamless and memorable. Our extensive network of trusted partners ensures that you have access to the best accommodations, transportation, and guided experiences.
+            </p>
+            <p> Contact us at: booking@adventure.com
+            </p>
+
+    <div class="wrapper">
+        <div class="row">
+        <div class="button">
+            <div class="icon">
+                <i class="fab fa-facebook"></i>
+            </div>
+            <span>Facebook</span>
+        </div>
+        <div class="button">
+            <div class="icon">
+                <i class="fab fa-instagram"></i>
+            </div>
+            <span>Instagram</span>
+        </div>
+        <div class="button">
+            <div class="icon">
+                <i class="fab fa-youtube"></i>
+            </div>
+            <span>Youtube</span>
+            </div>
+        <div class="button">
+            <div class="icon">
+                <i class="fab fa-twitter"></i>
+                </div>
+                <span>Twitter</span>
+                </div>    
+        </div>
+    <p class= "copyright"> &copy; Copyright All rights reserved. </p>
+
+    </div>
+  </div>
+</div>
+
+</html>
